@@ -4,6 +4,21 @@ from kensoDataStore.models import Tick
 import simplejson as json
 import math
 
+def temp_home(request):
+	return HttpResponse("""
+		<h1> Some sample requests </h1><br><br>
+
+		<h3> /api/seeCorrelation </h3><br><br>
+		<a href="http://104.236.25.141/api/seeCorrelation?symbol1=AAPL&symbol2=GOOG&startdate=2010/12/31&enddate=2013/12/31">http://104.236.25.141/api/seeCorrelation?symbol1=AAPL&symbol2=GOOG&startdate=2010/12/31&enddate=2013/12/31</a>
+		<br>
+		<a href="http://104.236.25.141/api/seeCorrelation?symbol1=A&symbol2=FM&startdate=2010/12/31&enddate=2013/12/31">http://104.236.25.141/api/seeCorrelation?symbol1=A&symbol2=FM&startdate=2010/12/31&enddate=2013/12/31</a>
+		<br><br><br>
+		<h3> /api/getData</h3> </br><br>
+		<a href="http://104.236.25.141/api/getData?symbol=AAPL&startdate=2010/12/31&enddate=2013/12/31">http://104.236.25.141/api/getData?symbol=AAPL&startdate=2010/12/31&enddate=2013/12/31</a>
+		<br>
+		<a href="http://104.236.25.141/api/getData?symbol=ATX&startdate=2010/12/31&enddate=2013/12/31">http://104.236.25.141/api/getData?symbol=ATX&startdate=2010/12/31&enddate=2013/12/31</a>
+		<br><br>
+		""")
 
 # Create your views here.
 def display_volatility(request):
@@ -55,7 +70,7 @@ def display_volatility(request):
 	sigmax = math.pow(varx,0.5)
 	sigmay = math.pow(vary,0.5)
 	correlation = cov/(sigmax*sigmay)
-	# END TODO; this algorithm needs to be cleaned up. Execution is too slow. 
+	# END TODO; this code needs to be cleaned up. Execution is too slow. 
 
 	ret = {}
 	ret["correlation_%s_%s" % (symbol_one, symbol_two)] = {}
