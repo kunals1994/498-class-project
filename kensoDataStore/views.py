@@ -28,7 +28,7 @@ def display_volatility(request):
 		lenB = lenB[diff:]
 
 	aSum, bSum = 0.0, 0.0
-	aCount, bCount = 0.0, 0.0
+	aCount, bCount = 0, 0
 	
 	# TODO - Why do we have 3 loops here? Should be done in pass. 
 	for a in listA:
