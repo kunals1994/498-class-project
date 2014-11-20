@@ -9,4 +9,4 @@ class Tick(models.Model):
 	percent_change = models.DecimalField(max_digits = 9, decimal_places = 8)
 
 	def __str__(self):
-		return self.symbol + " : " + str(self.day) + "/" + str(self.month) + "/" + str(self.year)
+		return self.symbol + " : " + str(self.date
