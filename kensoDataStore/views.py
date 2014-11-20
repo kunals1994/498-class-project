@@ -57,7 +57,7 @@ def display_volatility(request):
 	ret["result_%s_%s" % (symbol_one, symbol_two)]["correlation"]["sentiment_%s" % symbol_one] = None
 	ret["result_%s_%s" % (symbol_one, symbol_two)]["correlation"]["sentiment_%s" % symbol_two] = None
 
-	return HttpResponse(json.dumps(ret))
+	return HttpResponse(json.dumps(ret), use_decimal=True)
 
 
 def get_data(request):
@@ -81,4 +81,4 @@ def get_data(request):
 			"percent_change": point.percent_change
 		}
 
-	return HttpResponse(json.dumps(data_out))
+	return HttpResponse(json.dumps(data_out), use_decimal=True)
