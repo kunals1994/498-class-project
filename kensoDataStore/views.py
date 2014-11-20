@@ -32,6 +32,7 @@ def display_volatility(request):
 	
 	# TODO - Why do we have 3 loops here? Should be done in pass. 
 	## Doesn't seem very maintainable or type-safe at first glance; should rewrite this section. 
+	# NOTE - This section will definitely break; Rewrite before moving to production
 	for a in listA:
 		aSum += float(a.percent_change)
 		aCount += 1
@@ -44,8 +45,8 @@ def display_volatility(request):
 	varxNumerator, varyNumerator = 0.0, 0.0
 	for i in range(aCount): #acount and bcount should be equal
 		covNumerator += (float(listA[i].percent_change) - aAvg) * (float(listB[i].percent_change) - bAvg)
-		varxNumerator += math.pow((listA[i].percent_change - aAvg),2)
-		varyNumerator += math.pow((listB[i].percent_change - bAvg),2)
+		varxNumerator += math.pow((float(listA[i].percent_change) - aAvg),2)
+		varyNumerator += math.pow((float(listB[i].percent_change) - bAvg),2)
 	cov = covNumerator/aCount
 	varx = float(varxNumerator) / aCount
 	vary = float(varyNumerator) / bCount
