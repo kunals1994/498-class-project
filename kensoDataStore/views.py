@@ -43,7 +43,7 @@ def display_volatility(request):
 	covNumerator = 0.0
 	varxNumerator, varyNumerator = 0.0, 0.0
 	for i in range(aCount): #acount and bcount should be equal
-		covNumerator += (listA[i].percent_change - aAvg) * (listB[i].percent_change - bAvg)
+		covNumerator += (float(listA[i].percent_change) - aAvg) * (float(listB[i].percent_change) - bAvg)
 		varxNumerator += math.pow((listA[i].percent_change - aAvg),2)
 		varyNumerator += math.pow((listB[i].percent_change - bAvg),2)
 	cov = covNumerator/aCount
