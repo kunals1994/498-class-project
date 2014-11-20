@@ -56,10 +56,10 @@ def display_volatility(request):
 	# END TODO; this algorithm needs to be cleaned up. Execution is too slow. 
 
 	ret = {}
-	ret ["result_%s_%s" % (symbol_one, symbol_two)] = {}
-	ret["result_%s_%s" % (symbol_one, symbol_two)]["correlation"] = correlation
-	ret["result_%s_%s" % (symbol_one, symbol_two)]["sentiment_%s" % symbol_one] = None
-	ret["result_%s_%s" % (symbol_one, symbol_two)]["sentiment_%s" % symbol_two] = None
+	ret["correlation_%s_%s" % (symbol_one, symbol_two)] = {}
+	ret["correlation_%s_%s" % (symbol_one, symbol_two)]["correlation"] = correlation
+	ret["correlation_%s_%s" % (symbol_one, symbol_two)]["sentiment_%s" % symbol_one] = None
+	ret["correlation_%s_%s" % (symbol_one, symbol_two)]["sentiment_%s" % symbol_two] = None
 
 	return HttpResponse(json.dumps(ret))
 
@@ -74,12 +74,12 @@ def get_data(request):
 
 	data_out = {}
 
-	data_out["data"] = {}
+	data_out["data_" + csymbol] = {}
 
 	for point in data:
 		date = str(point.date)
 		date = date[:4] + "-" + date[4:6] + "-" + date[6:]
-		data_out["data"][date] = {
+		data_out["data_" + csymbol][date] = {
 			"open" : point.day_open,
 			"volume" : point.volume,
 			"percent_change": point.percent_change
