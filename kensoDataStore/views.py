@@ -22,10 +22,10 @@ def display_volatility(request):
 
 	if(lenA > lenB):
 		diff = lenA-lenB
-		lenA = lenA[diff:]
+		listA = listA[diff:]
 	elif(lenB > lenA):
 		diff = lenB-lenA
-		lenB = lenB[diff:]
+		listA = listA[diff:]
 
 	aSum, bSum = 0.0, 0.0
 	aCount, bCount = 0, 0
