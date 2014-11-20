@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from kensoDataStore.models import Tick
-import json
+import simplejson as json
 import math
 
 
