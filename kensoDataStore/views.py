@@ -31,10 +31,10 @@ def display_volatility(request):
 	aCount, bCount = 0.0, 0.0
 	
 	for a in listA:
-		aSum += a.percent_change
+		aSum += float(a.percent_change)
 		aCount += 1
 	for b in listB:
-		bSum += b.percent_change
+		bSum += float(b.percent_change)
 		bCount += 1
 	aAvg = aSum/aCount
 	bAvg = bSum/bCount
