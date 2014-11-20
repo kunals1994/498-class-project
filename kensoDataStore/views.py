@@ -31,6 +31,7 @@ def display_volatility(request):
 	aCount, bCount = 0, 0
 	
 	# TODO - Why do we have 3 loops here? Should be done in pass. 
+	## Doesn't seem very maintainable or type-safe at first glance; should rewrite this section. 
 	for a in listA:
 		aSum += float(a.percent_change)
 		aCount += 1
