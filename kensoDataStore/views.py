@@ -58,8 +58,8 @@ def display_volatility(request):
 	ret = {}
 	ret ["result_%s_%s" % (symbol_one, symbol_two)] = {}
 	ret["result_%s_%s" % (symbol_one, symbol_two)]["correlation"] = correlation
-	ret["result_%s_%s" % (symbol_one, symbol_two)]["correlation"]["sentiment_%s" % symbol_one] = None
-	ret["result_%s_%s" % (symbol_one, symbol_two)]["correlation"]["sentiment_%s" % symbol_two] = None
+	ret["result_%s_%s" % (symbol_one, symbol_two)]["sentiment_%s" % symbol_one] = None
+	ret["result_%s_%s" % (symbol_one, symbol_two)]["sentiment_%s" % symbol_two] = None
 
 	return HttpResponse(json.dumps(ret))
 
