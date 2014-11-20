@@ -30,6 +30,7 @@ def display_volatility(request):
 	aSum, bSum = 0.0, 0.0
 	aCount, bCount = 0.0, 0.0
 	
+	# TODO - Why do we have 3 loops here? Should be done in pass. 
 	for a in listA:
 		aSum += float(a.percent_change)
 		aCount += 1
@@ -40,7 +41,7 @@ def display_volatility(request):
 	bAvg = bSum/bCount
 	covNumerator = 0.0
 	varxNumerator, varyNumerator = 0.0, 0.0
-	for i in range(acount): #acount and bcount should be equal
+	for i in range(aCount): #acount and bcount should be equal
 		covNumerator += (listA[i].percent_change - aAvg) * (listB[i].percent_change - bAvg)
 		varxNumerator += math.pow((listA[i].percent_change - aAvg),2)
 		varyNumerator += math.pow((listB[i].percent_change - bAvg),2)
@@ -50,6 +51,7 @@ def display_volatility(request):
 	sigmax = math.pow(varx,0.5)
 	sigmay = math.pow(vary,0.5)
 	correlation = cov/(sigmax*sigmay)
+	# END TODO; this algorithm needs to be cleaned up. Execution is too slow. 
 
 	ret = {}
 	ret ["result_%s_%s" % (symbol_one, symbol_two)] = {}
