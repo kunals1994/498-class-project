@@ -14,7 +14,7 @@ class Tick(models.Model):
 
 class Volitility(models.Model):
 	symbol = models.CharField(max_length = 5)
-	year = models.IntegerField(max_digits = 5)
+	year = models.IntegerField()
 	volitliity = models.DecimalField(max_digits = 9, decimal_places = 8)
 
 	def __str__(self):
