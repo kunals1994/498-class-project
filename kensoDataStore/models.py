@@ -13,11 +13,11 @@ class Tick(models.Model):
 
 
 class Volitility(models.Model):
-	symbol = models.CharField(max_length = 5)
-	year = models.IntegerField()
+	symbol = models.CharField(max_length = 5, primary_key = True)
 	volitliity = models.DecimalField(max_digits = 9, decimal_places = 8)
+	company_name = models.CharField(max_length = 100)
 
 	def __str__(self):
-		return self.symbol + " : " + str(self.year)
+		return self.symbol + " : " + str(self.volitliity)
 
 
