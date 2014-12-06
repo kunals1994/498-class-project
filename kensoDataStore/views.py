@@ -26,9 +26,9 @@ def temp_home(request):
 # Create your views here.
 def display_volatility(request):
 
-	symbol_one = request.GET.get("symbols").split(",")
+	symbol_one = request.GET.get("symbols")
 	ret = {}
-	for symbol in symbol_one:
+	for symbol in symbol_one.split(","):
 		data = Volitility.objects.filter(symbol = symbol_one)[0]
 		sentiment = (sentiment_analyzer.___get_news_sentiment___(data.symbol + " " + data.company_name)) * 2 - 1
 
