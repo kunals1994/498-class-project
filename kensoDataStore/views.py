@@ -66,12 +66,12 @@ def display_volatility(request):
 	symbol_one = request.GET.get("symbol")
 
 	data = Volitility.objects.filter(symbol = symbol_one)[0]
-	#sentiment = ___get_news_sentiment___(data.symbol + " " + data.company_name)
+	sentiment = ___get_news_sentiment___(data.symbol + " " + data.company_name)
 
 	ret = {}
 	ret[symbol_one] = {}
 	ret[symbol_one]["volitility"] = float(data.volitliity)
-	ret[symbol_one]["sentiment"] = None
+	ret[symbol_one]["sentiment"] = sentiment
 
 	return HttpResponse(json.dumps(ret))
 
