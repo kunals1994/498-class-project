@@ -26,7 +26,7 @@ def display_volatility(request):
 
 	symbol_one = request.GET.get("symbol")
 
-	volitility_data = Volitility.objects.filter(symbol = symbol_one)
+	volitility_data = Volitility.objects.filter(symbol = symbol_one)[0]
 
 	ret = {}
 	ret[symbol_one] = {}
