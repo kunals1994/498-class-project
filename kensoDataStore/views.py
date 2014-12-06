@@ -29,8 +29,14 @@ def display_volatility(request):
 	symbol_one = request.GET.get("symbols").split(",")
 	ret = {}
 	for symbol in symbol_one:
-		data = Volitility.objects.filter(symbol = symbol)[0]
-		sentiment = (sentiment_analyzer.___get_news_sentiment___(data.symbol + " " + data.company_name)) * 2 - 1
+		data = 0
+		sentiment = 0
+		# Anything that is not in the database is considered inconclusive
+		try:
+			data = Volitility.objects.filter(symbol = symbol)[0]
+			sentiment = (sentiment_analyzer.___get_news_sentiment___(data.symbol + " " + data.company_name)) * 2 - 1
+		except:
+			fiver = 5
 
 		ret[symbol] = {}
 		ret[symbol]["volitility"] = float(data.volitliity)
