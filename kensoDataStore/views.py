@@ -42,7 +42,7 @@ def ___get_news_sentiment___(query):
             continue
     avg = total/counted
     
-    return avg, html
+    return avg
 
 def temp_home(request):
 	return HttpResponse("""
