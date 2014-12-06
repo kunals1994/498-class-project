@@ -6,7 +6,7 @@ import simplejson as json
 import math
 
 import requests
-from django_project.alchemyapi import AlchemyAPI
+from kensoDataStore.alchemyapi import AlchemyAPI
 import json
 
 # Helper Method for determining Sentiment
