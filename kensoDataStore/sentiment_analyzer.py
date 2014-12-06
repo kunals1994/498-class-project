@@ -6,7 +6,7 @@ import json
 def ___get_news_sentiment___(query):
     query = str(query)
     
-    r = requests.get('https://api.datamarket.azure.com/Data.ashx/Bing/Search/News?Query=%27'+ query+'%27&$format=json', auth=('Ql9qEoqZut7Uy3i7mTtiX8Dv1SciVZf1Qwcz07BUx5k','Ql9qEoqZut7Uy3i7mTtiX8Dv1SciVZf1Qwcz07BUx5k'))
+    r = requests.get('https://api.datamarket.azure.com/Data.ashx/Bing/Search/News?Query=%27'+ query+'%27USA%27&$format=json', auth=('Ql9qEoqZut7Uy3i7mTtiX8Dv1SciVZf1Qwcz07BUx5k','Ql9qEoqZut7Uy3i7mTtiX8Dv1SciVZf1Qwcz07BUx5k'))
     rrr = r.json()
     rr = rrr['d']['results']
     length = len(rr)
