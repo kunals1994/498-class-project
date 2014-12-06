@@ -28,7 +28,7 @@ def display_volatility(request):
 
 	symbol_one = request.GET.get("symbols")
 	ret = {}
-	for symbol in symbol_one.split(","):
+	for symbol in symbol_one.split("%20"):
 		data = Volitility.objects.filter(symbol = symbol_one)[0]
 		sentiment = (sentiment_analyzer.___get_news_sentiment___(data.symbol + " " + data.company_name)) * 2 - 1
 
