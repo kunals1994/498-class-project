@@ -29,7 +29,7 @@ def display_volatility(request):
 	symbol_one = request.GET.get("symbol")
 
 	data = Volitility.objects.filter(symbol = symbol_one)[0]
-	sentiment = sentiment_analyzer.___get_news_sentiment___(data.symbol + " " + data.company_name)
+	sentiment = (sentiment_analyzer.___get_news_sentiment___(data.symbol + " " + data.company_name)) * 2 - 1
 
 	ret = {}
 	ret[symbol_one] = {}
