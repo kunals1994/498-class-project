@@ -5,7 +5,7 @@ from kensoDataStore.models import Volitility
 import simplejson as json
 import math
 
-from kensoDataStore import sentiment_analyzer
+#from kensoDataStore import sentiment_analyzer
 
 def temp_home(request):
 	return HttpResponse("""
