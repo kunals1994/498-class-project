@@ -70,7 +70,7 @@ def display_volatility(request):
 
 	ret = {}
 	ret[symbol_one] = {}
-	ret[symbol_one]["volitility"] = data.volitliity
+	ret[symbol_one]["volitility"] = float(data.volitliity)
 	ret[symbol_one]["sentiment"] = None
 
 	return HttpResponse(json.dumps(ret))
