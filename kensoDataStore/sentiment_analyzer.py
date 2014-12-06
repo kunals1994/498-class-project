@@ -33,6 +33,9 @@ def ___get_news_sentiment___(query):
                 counted += 1
         except:
             continue
+            
+    if(counted == 0):
+        return 0
     avg = total/counted
     
     return avg
