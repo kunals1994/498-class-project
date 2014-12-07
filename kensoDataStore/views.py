@@ -41,7 +41,7 @@ def temp_home(request):
     					if (e.keyCode == 13) {
       						//FIELD VALUES
       						var symbols = $("#input").val();
-      						$.get("getVolatility?symbols=" + symbols, function( data ) {
+      						$.get("/getVolatility?symbols=" + symbols, function( data ) {
   								alert( "Data Loaded: " + data );
 							});
     					}
