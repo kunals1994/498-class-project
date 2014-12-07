@@ -54,7 +54,7 @@ def display_volatility(request):
 			upper_count += 1
 			upper_sentiment += sentiment
 
-		elif(float(data.volitliity) < -0.5):
+		elif(float(data.volitliity) < -0.5 or (float(data.volitliity) > 0 and float(data.volitliity) < 0.1)):
 			lower[symbol] = {}
 			lower[symbol]["volitility"] = float(data.volitliity)
 			lower[symbol]["sentiment"] = sentiment
@@ -66,8 +66,14 @@ def display_volatility(request):
 			neutral[symbol]["volitility"] = float(data.volitliity)
 			neutral[symbol]["sentiment"] = sentiment
 
-	lower_sentiment /= lower_count
-	upper_sentiment /= upper_count
+	try:
+		lower_sentiment /= lower_count
+	except:
+		lower_sentiment = 0
+	try:
+		upper_sentiment /= upper_count
+	except:
+		upper_sentiment = 0
 
 	if (upper_sentiment < lower_count):
 		temp = upper_sentiment
