@@ -41,6 +41,9 @@ def temp_home(request):
     					if (e.keyCode == 13) {
       						//FIELD VALUES
       						var symbols = $("#input").val();
+      						document.getElementById("short-display").innerHTML = "";
+							document.getElementById("neutral-display").innerHTML = "";
+							document.getElementById("long-display").innerHTML = "";
       						$.get("/api/getVolatility?symbols=" + symbols, function( inp ) {
   								var data = eval("(" + inp + ')');
   								for (var property in data.short){
