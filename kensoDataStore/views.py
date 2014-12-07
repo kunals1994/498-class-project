@@ -41,7 +41,7 @@ def temp_home(request):
     					if (e.keyCode == 13) {
       						//FIELD VALUES
       						var symbols = $("#input").val();
-      						$.get("http://498project.tk/getVolatility?symbols=" + symbols, function( data ) {
+      						$.get("/api/getVolatility?symbols=" + symbols, function( data ) {
   								alert( "Data Loaded: " + data );
 							});
     					}
