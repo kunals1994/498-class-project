@@ -22,17 +22,17 @@ def temp_home(request):
 					</div>
 					<div id="short" class="grid-33 mobile-grid-100">
 						<div class="group-title">Short sell these</div>
-						<div class="display-stocks">
+						<div id="short-display" class="display-stocks">
 						</div>
 					</div>
 					<div id="neutral" class="grid-33 mobile-grid-100">
 						<div class="group-title">No predictions for these</div>
-						<div class="display-stocks">
+						<div id="neutral-display" class="display-stocks">
 						</div>
 					</div>
 					<div id="long" class="grid-33 mobile-grid-100">
 						<div class="group-title">Buy these</div>
-						<div class="display-stocks">
+						<div id="long-display" class="display-stocks">
 						</div>
 					</div>
 				</div>
@@ -42,7 +42,22 @@ def temp_home(request):
       						//FIELD VALUES
       						var symbols = $("#input").val();
       						$.get("/api/getVolatility?symbols=" + symbols, function( data ) {
-  								alert( "Data Loaded: " + data );
+  								var x = eval(data);
+  								for (var property in data.short){
+  									if(data.short.hasOwnProperty(property)){
+  										$("#short-display").append(property + '\n')
+  									}
+  								}
+  								for (var property in data.neutral){
+  									if(data.neutral.hasOwnProperty(property)){
+  										$("#neutral-display").append(property + '\n')
+  									}
+  								}
+  								for (var property in data.long){
+  									if(data.long.hasOwnProperty(property)){
+  										$("#long-display").append(property + '\n')
+  									}
+  								}
 							});
     					}
   					});
