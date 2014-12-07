@@ -27,7 +27,16 @@ def temp_home(request):
 def display_volatility(request):
 
 	symbol_one = request.GET.get("symbols").split(",")
-	ret = {}
+	lower = []
+	neutral = []
+	upper = []
+
+	lower_sentiment = 0.0
+	upper_sentiment = 0.0
+
+	lower_count = 0
+	upper_count = 0
+
 	for symbol in symbol_one:
 		data = 0
 		sentiment = 0
@@ -38,11 +47,38 @@ def display_volatility(request):
 		except:
 			fiver = 5
 
-		ret[symbol] = {}
-		ret[symbol]["volitility"] = float(data.volitliity)
-		ret[symbol]["sentiment"] = sentiment
+		if(float(data.volitliity) > 0.5):
+			upper[symbol] = {}
+			upper[symbol]["volitility"] = float(data.volitliity)
+			upper[symbol]["sentiment"] = sentiment
+			upper_count += 1
+			upper_sentiment += sentiment
 
-	return HttpResponse(json.dumps(ret))
+		elif(float(data.volitliity) < -0.5):
+			lower[symbol] = {}
+			lower[symbol]["volitility"] = float(data.volitliity)
+			lower[symbol]["sentiment"] = sentiment
+			lower_count += 1
+			lower_sentiment += sentiment
+
+		else:
+			neutral[symbol] = {}
+			neutral[symbol]["volitility"] = float(data.volitliity)
+			neutral[symbol]["sentiment"] = sentiment
+
+	lower_sentiment /= lower_count
+	upper_sentiment /= upper_count
+
+	if (upper_sentiment < lower_count):
+		temp = upper_sentiment
+		upper_sentiment = lower_sentiment
+		lower_sentiment = upper_sentiment
+
+	return HttpResponse(json.dumps({
+			"long" : upper,
+			"neutral" : neutral,
+			"short" : lower
+		}))
 
 
 def get_data(request):
