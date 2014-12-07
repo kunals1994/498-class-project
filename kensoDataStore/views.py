@@ -47,14 +47,14 @@ def display_volatility(request):
 		except:
 			fiver = 5
 
-		if(float(data.volitliity) > 0.5):
+		if(float(data.volitliity) > 0.3):
 			upper[symbol] = {}
 			upper[symbol]["volitility"] = float(data.volitliity)
 			upper[symbol]["sentiment"] = sentiment
 			upper_count += 1
 			upper_sentiment += sentiment
 
-		elif(float(data.volitliity) < -0.5 or (float(data.volitliity) > 0 and float(data.volitliity) < 0.19)):
+		elif(float(data.volitliity) < -0.3):
 			lower[symbol] = {}
 			lower[symbol]["volitility"] = float(data.volitliity)
 			lower[symbol]["sentiment"] = sentiment
