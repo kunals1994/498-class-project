@@ -12,6 +12,7 @@ def temp_home(request):
 		<html>
 			<head>
 				<title>Stock Analyzer</title>
+				<script src="jquery-1.11.1.min.js"></script>
 				<link rel = "stylesheet" type= "text/css" href = "http://kshar.me/assets/css/unsemantic-grid-responsive.css"/>
 			</head>
 			<body>
