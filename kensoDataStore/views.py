@@ -45,17 +45,17 @@ def temp_home(request):
   								var x = eval(data);
   								for (var property in data.short){
   									if(data.short.hasOwnProperty(property)){
-  										$("#short-display").append(property + '\n')
+  										$("#short-display").append(property + "\n")
   									}
   								}
   								for (var property in data.neutral){
   									if(data.neutral.hasOwnProperty(property)){
-  										$("#neutral-display").append(property + '\n')
+  										$("#neutral-display").append(property + "\n")
   									}
   								}
   								for (var property in data.long){
   									if(data.long.hasOwnProperty(property)){
-  										$("#long-display").append(property + '\n')
+  										$("#long-display").append(property + "\n")
   									}
   								}
 							});
