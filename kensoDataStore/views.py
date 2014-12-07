@@ -27,9 +27,9 @@ def temp_home(request):
 def display_volatility(request):
 
 	symbol_one = request.GET.get("symbols").split(",")
-	lower = []
-	neutral = []
-	upper = []
+	lower = {}
+	neutral = {}
+	upper = {}
 
 	lower_sentiment = 0.0
 	upper_sentiment = 0.0
